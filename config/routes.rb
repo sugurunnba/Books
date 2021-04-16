@@ -1,3 +1,16 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # 以下deviseのルートパス
+  devise_for :users
+
+  
+  root to: 'user/users#top'
+  
+
+  # 以下userのルートパス
+  scope module: :user do
+    resources :users, only: [:show, :edit, :update] do
+      get 'top'
+    end
+  end
+
 end
