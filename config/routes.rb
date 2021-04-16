@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+
+
   # 以下deviseのルートパス
   devise_for :users
+  devise_for :admins
 
 
   root to: 'user/users#top'
@@ -16,5 +19,15 @@ Rails.application.routes.draw do
   scope module: :user do
     resources :books, only: [:new, :create, :index, :show, :edit, :update, :delete]
   end
+  
+  # 以下adminのルートパス
+  namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update]
+  end
+  
+  namespace :admin do
+    resources :books, only: [:index, :show, :edit, :update]
+  end
+
 
 end
