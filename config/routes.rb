@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :user do
-    resources :books, only: [:new, :create, :index, :show, :edit, :update, :delete]
+    resources :books, only: [:new, :create, :index, :show, :edit, :update, :destroy]
   end
   
   # 以下adminのルートパス

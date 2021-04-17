@@ -1,2 +1,42 @@
-<h1>User::Books#show</h1>
-<p>Find me in app/views/user/books/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+      <table border="1">
+        <thead>
+
+          <h3 class="text-center"><%= @book.name %>の詳細ページ</h3>
+        </thead>
+<br>
+        <tbody>
+          <tr>
+            <th>本のタイトル</th>
+            <td><%= @book.name %></td>
+          </tr>
+          <tr>
+            <th>本の感想</th>
+            <td><%= simple_format(@book.body) %></td>
+          </tr>
+          <tr>
+            <th>本の写真</th>
+            <!--<td><!%= attachment_image_tag @book, :book_image, :fill, 300, 300 %></td>-->
+            <td>
+            <% if @book.book_image.present? %>
+              <%= attachment_image_tag @book, :book_image, size: "200x200" %>
+            <% else %>
+              <%= image_tag "no_image.jpg", size: "200x200" %>
+            <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td><%= link_to "編集", edit_book_path(@book) %></td>
+          </tr>
+        </tbody>
+      </table>
+<br>
+
+
+<br>
+
+    </div>
+  </div>
+</div>
