@@ -9,6 +9,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -25,5 +30,4 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
 <%= render "users/shared/links" %>
