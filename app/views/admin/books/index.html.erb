@@ -1,1 +1,37 @@
-<h3>管理者、感想一覧ページ</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 col-xs-offset-1 text-center">
+<br>
+  	  <table border="1">
+      	<thead>
+    	    <h3 class="text-center">感想一覧</h3>
+      		<tr>
+      		  <td>本のタイトル</td>
+      		  <td>本の写真</td>
+      		</tr>
+      	</thead>
+      	<br><br>
+      	<% @books.each do |book| %>
+        	<tbody>
+        		<tr>
+        	    <th>
+        	      <%= link_to book_path(book) do %>
+                  <%= book.name %>
+                <% end %>
+                <%= link_to "削除", admin_book_path(book), method: :delete %>
+              </th>
+        	    <td>
+        	    	<% if book.book_image.present? %>
+                  <%= attachment_image_tag book, :book_image, size: "200x200" %>
+                <% else %>
+                  <%= image_tag "no_image.jpg", size: "200x200" %>
+                <% end %>
+              </td>
+        	  </tr>
+        	</tbody>
+      	<% end %>
+      </table>
+    </div>
+  </div>
+</div>
+

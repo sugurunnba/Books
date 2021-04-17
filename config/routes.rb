@@ -19,14 +19,14 @@ Rails.application.routes.draw do
   scope module: :user do
     resources :books, only: [:new, :create, :index, :show, :edit, :update, :destroy]
   end
-  
+
   # 以下adminのルートパス
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
   end
-  
+
   namespace :admin do
-    resources :books, only: [:index, :show, :edit, :update]
+    resources :books, only: [:index, :show, :edit, :update, :destroy]
   end
 
 
