@@ -1,2 +1,67 @@
-<h1>Admin::Books#show</h1>
-<p>Find me in app/views/admin/books/show.html.erb</p>
+<div class="container"></div>
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+      <table border="1">
+        <thead>
+
+          <h3 class="text-center"><%= @book.name %>の詳細ページ</h3>
+        </thead>
+<br>
+        <tbody>
+          <tr>
+            <th>本のタイトル</th>
+            <td><%= @book.name %></td>
+          </tr>
+          <tr>
+            <th>本の感想</th>
+            <td><%= simple_format(@book.body) %></td>
+          </tr>
+          <tr>
+            <th>本の写真</th>
+            <!--<td><!%= attachment_image_tag @book, :book_image, :fill, 300, 300 %></td>-->
+            <td>
+            <% if @book.book_image.present? %>
+              <%= attachment_image_tag @book, :book_image, size: "200x200" %>
+            <% else %>
+              <%= image_tag "no_image.jpg", size: "200x200" %>
+            <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td><%= link_to "編集", edit_admin_book_path(@book) %></td>
+            <td>
+            <% if @book.favorited_by?(@book.user) %>
+              ♥<%= @book.favorites.count %>いいね
+            <% else %>
+                ♡<%= @book.favorites.count %>いいね
+            <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<br>
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+      <table border="1">
+        <thead>
+          <tr>
+            <td>user名</td>
+            <td>コメント</td>
+          </tr>
+        </thead>
+        <% @book.book_comments.each do |book_comment| %>
+        <tbody>
+          <tr>
+            <td><%= book_comment.user.name %><%= link_to "削除", admin_book_book_comment_path(@book, book_comment), method: :delete, local: true %></td>
+            <td><%= book_comment.comment %></td>
+          </td>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+<br>
+
+    </div>
+  </div>
+</div>
