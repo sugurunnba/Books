@@ -1,2 +1,14 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<table>
+  <thead>
+    <tr>
+      <td>ユーザ名</td>
+    </tr>
+  </thead>
+  <% @users.each do |user| %>
+  <tbody>
+    <tr>
+      <td><%= user.name %><%= link_to "編集", edit_user_path(user) %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
