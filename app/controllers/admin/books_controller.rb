@@ -1,4 +1,5 @@
 class Admin::BooksController < ApplicationController
+  before_action :authenticate_admin!
   def show
     @book = Book.find(params[:id])
   end
