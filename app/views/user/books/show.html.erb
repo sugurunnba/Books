@@ -28,7 +28,9 @@
             </td>
           </tr>
           <tr>
+            <% if @book.user == current_user %>
             <td><%= link_to "編集", edit_book_path(@book) %></td>
+            <% end %>
             <td>
             <% if @book.favorited_by?(current_user) %>
               <%= link_to book_favorite_path(@book), method: :delete do %>
@@ -64,14 +66,16 @@
         <% @book.book_comments.each do |book_comment| %>
         <tbody>
           <tr>
-            <td><%= book_comment.user.name %><%= link_to "削除", book_book_comment_path(@book, book_comment), method: :delete, local: true %></td>
+            <td>
+              <%= book_comment.user.name %>
+              <% if book_comment.user == current_user %>
+                <%= link_to "削除", book_book_comment_path(@book, book_comment), method: :delete, local: true %>
+              <% end %>
+            </td>
             <td><%= book_comment.comment %></td>
           </td>
         </tbody>
         <% end %>
-        <tr>
-          
-        </tr>
       </table>
     </div>
   </div>
