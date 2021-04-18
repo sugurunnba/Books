@@ -12,9 +12,7 @@ class Admin::BooksController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
     @book = Book.find(params[:id])
-    @book.user_id = @user.id
     @book.update(book_params)
     redirect_to admin_books_path
   end
