@@ -19,7 +19,9 @@
         	      <%= link_to book_path(book) do %>
                   <%= book.name %>
                 <% end %>
-                <%= link_to "削除", book_path(book), method: :delete %>
+								<% if book.user == current_user %>
+                	<%= link_to "削除", book_path(book), method: :delete %>
+								<% end %>
               </th>
         	    <td>
         	    	<% if book.book_image.present? %>
