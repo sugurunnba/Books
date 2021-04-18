@@ -15,7 +15,7 @@
         	<tbody>
         		<tr>
         	    <th>
-        	      <%= link_to book_path(book) do %>
+        	      <%= link_to admin_book_path(book) do %>
                   <%= book.name %>
                 <% end %>
                 <%= link_to "削除", admin_book_path(book), method: :delete %>
