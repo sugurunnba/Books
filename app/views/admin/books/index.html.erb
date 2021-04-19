@@ -1,13 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-9 col-xs-offset-1 text-center">
-<br>
+    <div class="col-md-12 col-md-offset-1 text-center">
   	  <table border="1">
       	<thead>
+			  <br><br>
     	    <h3 class="text-center">感想一覧</h3>
       		<tr>
       		  <td>本のタイトル</td>
       		  <td>本の写真</td>
+						<td>コメント数/いいね数</td>
       		</tr>
       	</thead>
       	<br><br>
@@ -18,7 +19,9 @@
         	      <%= link_to admin_book_path(book) do %>
                   <%= book.name %>
                 <% end %>
-                <%= link_to "削除", admin_book_path(book), method: :delete %>
+								<% if book.user == current_user %>
+                	<%= link_to "削除", admin_book_path(book), method: :delete %>
+								<% end %>
               </th>
         	    <td>
         	    	<% if book.book_image.present? %>
@@ -27,6 +30,7 @@
                   <%= image_tag "no_image.jpg", size: "200x200" %>
                 <% end %>
               </td>
+							<td><%= book.book_comments.count %> / <%= book.favorites.count %></td>
         	  </tr>
         	</tbody>
       	<% end %>
@@ -34,4 +38,3 @@
     </div>
   </div>
 </div>
-
