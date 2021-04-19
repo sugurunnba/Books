@@ -14,8 +14,11 @@ class Admin::BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    @book.update(book_params)
-    redirect_to admin_books_path
+    if @book.update(book_params)
+      redirect_to admin_books_path
+    else
+      render :edit
+    end
   end
 
   def destroy

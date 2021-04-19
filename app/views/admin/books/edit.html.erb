@@ -6,7 +6,7 @@
           <i class="fa fa-history"></i><%= link_to "戻る", 'javascript:history.back()' %>
         </div>
 <br>
-        <!--<!%= render 'layouts/error_messages', messages: @shop %>-->
+        <%= render 'layouts/error_messages', messages: @book %>
 
         <h3 class="mt-1 mb-3">感想編集</h3>
         <%= form_with model: @book, url: admin_book_path(@book), local:true do |f| %>
