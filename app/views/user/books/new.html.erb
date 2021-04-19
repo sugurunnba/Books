@@ -6,7 +6,7 @@
           <i class="fa fa-history"></i><%= link_to "戻る", 'javascript:history.back()' %>
         </div>
 <br>
-        <!--<!%= render 'layouts/error_messages', messages: @shop %>-->
+        <%= render 'layouts/error_messages', messages: @book %>
         <h3 class="mt-1 mb-3">感想登録</h3>
         <%= form_with model: @book, url: books_path, local:true do |f| %>
 
@@ -16,12 +16,12 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :name, "店名", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
+          <%= f.label :name, "本のタイトル", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
           <%= f.text_field :name, autocomplete: "name", :class => "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :body, "お店紹介文", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
+          <%= f.label :body, "本の感想", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
           <%= f.text_field :body, autocomplete: "introduction", :class => "form-control" %>
         </div>
 
