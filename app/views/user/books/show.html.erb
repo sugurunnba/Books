@@ -8,20 +8,12 @@
 <br>
           <tr>
           <% if @book.user == current_user %>
-            <td style="background-color:white;"><%= link_to "編集する", edit_admin_book_path(@book) %></td>
+            <td style="background-color:white;"><%= link_to "編集する", edit_book_path(@book) %></td>
           <% end %>
           </tr>
         </thead>
 <br>
         <tbody>
-          <tr>
-            <th>本のタイトル</th>
-            <td><%= @book.name %></td>
-          </tr>
-          <tr>
-            <th>本の感想</th>
-            <td><%= simple_format(@book.body) %></td>
-          </tr>
           <tr>
             <th>本の写真</th>
             <td>
@@ -31,6 +23,14 @@
               <%= image_tag "no_image.jpg", size: "200x200" %>
             <% end %>
             </td>
+          </tr>
+          <tr>
+            <th>本のタイトル</th>
+            <td><%= @book.name %></td>
+          </tr>
+          <tr>
+            <th>本の感想</th>
+            <td><%= simple_format(@book.body) %></td>
           </tr>
           <tr>
             <th>いいね数</th>
