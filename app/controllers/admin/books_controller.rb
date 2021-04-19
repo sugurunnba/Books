@@ -1,4 +1,5 @@
 class Admin::BooksController < ApplicationController
+  before_action :authenticate_admin!
   def show
     @book = Book.find(params[:id])
   end
@@ -21,5 +22,10 @@ class Admin::BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.destroy
     redirect_to admin_books_path
+  end
+  
+  private
+  def book_params
+    params.require(:book).permit(:name, :body, :book_image)
   end
 end

@@ -7,7 +7,12 @@
   <% @users.each do |user| %>
   <tbody>
     <tr>
-      <td><%= user.name %><%= link_to "編集", edit_user_path(user) %></td>
+      <td>
+        <%= link_to admin_user_path(user) do %>
+          <%= user.name %>
+        <% end %>
+        <%= link_to "編集", edit_admin_user_path(user) %>
+      </td>
     </tr>
   </tbody>
   <% end %>
