@@ -1,14 +1,36 @@
-<%= form_with model: @user, url: admin_user_path(@user), local:true do |f| %>
-<div>
-  <%= f.text_field :name %>
+<div class="container">
+  <div class="row">
+    <div class="card col-sm-6 mx-auto mt-5">
+      <div class="card-body">
+        <div>
+          <i class="fa fa-history"></i><%= link_to "戻る", 'javascript:history.back()' %>
+        </div>
+<br>
+        <!--<!%= render 'layouts/error_messages', messages: @shop %>-->
+
+        <h3 class="mt-1 mb-3">ユーザ情報更新</h3>
+        <%= form_with model: @user, url: admin_user_path(@user), local:true do |f| %>
+
+        <div class="form-group">
+          <%= f.label :name, "ユーザ名", :class => "form-label" %>
+          <%= f.text_field :name, :class => "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :introduction, "自己紹介文", :class => "form-label" %>
+          <%= f.text_field :introduction, autocomplete: "introduction", :class => "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email, "メールアドレス", :class => "form-label" %>
+          <%= f.email_field :email, autocomplete: "email", :class => "form-control" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "更新する", :class => "btn btn-primary btn-block" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-<div>
-  <%= f.text_field :introduction %>
-</div>
-<div>
-  <%= f.text_field :email %>
-</div>
-<div>
-  <%= f.submit "更新" %>
-</div>
-<% end %>

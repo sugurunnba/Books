@@ -1,19 +1,31 @@
-<table>
-  <thead>
-    <tr>
-      <td>ユーザ名</td>
-    </tr>
-  </thead>
-  <% @users.each do |user| %>
-  <tbody>
-    <tr>
-      <td>
-        <%= link_to admin_user_path(user) do %>
-          <%= user.name %>
-        <% end %>
-        <%= link_to "編集", edit_admin_user_path(user) %>
-      </td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-md-offset-1 text-center">
+  	  <table border="1">
+      	<thead>
+			  <br><br>
+    	    <h3 class="text-center">登録ユーザ 一覧</h3>
+      		<tr>
+      		  <td>ユーザーID</td>
+      		  <td>ユーザ名</td>
+      		</tr>
+      	</thead>
+      	<br><br>
+      	<% @users.each do |user| %>
+        	<tbody>
+        		<tr>
+        	    <th>
+        	      <%= user.id%>
+              </th>
+        	    <td>
+        	      <%= link_to admin_user_path(user) do %>
+                  <%= user.name %>
+                <% end %>
+              </td>
+        	  </tr>
+        	</tbody>
+      	<% end %>
+      </table>
+    </div>
+  </div>
+</div>
