@@ -1,9 +1,9 @@
-<div class="container"></div>
+<div class="container">
   <div class="row">
-    <div class="col-md-offset-1 col-md-10">
+    <div class="col-md-12 col-md-offset-1 text-center">
       <table border="1">
         <thead>
-
+        <br><br>
           <h3 class="text-center"><%= @book.name %>の詳細ページ</h3>
         </thead>
 <br>
@@ -28,7 +28,11 @@
             </td>
           </tr>
           <tr>
+            <% if @book.user == current_user %>
             <td><%= link_to "編集", edit_book_path(@book) %></td>
+            <% else %>
+            <th>いいね数</th>
+            <% end %>
             <td>
             <% if @book.favorited_by?(current_user) %>
               <%= link_to book_favorite_path(@book), method: :delete do %>
@@ -41,19 +45,24 @@
             <% end %>
             </td>
           </tr>
-          <%= form_with model: [@book, @book_comment], local: true do |f| %>
-          <tr>
-            <td colspan="2">
-              <%= f.text_area :comment %>
-              <%= f.submit "送信する" %>
-            </td>
-          </tr>
-          <% end %>
         </tbody>
       </table>
-<br>
+      <%# table内にform_withを置くとsubmitが反応しないので、コメント部分のみ別table内にて作成 %>
+      <%= form_with model: [@book, @book_comment], local: true do |f| %>
+      <table border="1" style="border-top: none;">
+        <tbody>
+          <th>コメント</th>
+          <td colspan="2">
+            <%= f.text_area :comment %>
+            <%= f.submit "送信する" %>
+          </td>
+        </tbody>
+      </table>
+      <% end %>
+
+<br><br>
   <div class="row">
-    <div class="col-md-offset-1 col-md-10">
+    <div class="col-md-12 col-md-offset-1 text-center">
       <table border="1">
         <thead>
           <tr>
@@ -61,22 +70,30 @@
             <td>コメント</td>
           </tr>
         </thead>
+        <% if @book.book_comments.empty? %>
+        <tbody>
+          <tr>
+            <td colspan="2">コメントは投稿されていません</td>
+          </tr>
+        </body>
+        <% else %>
         <% @book.book_comments.each do |book_comment| %>
         <tbody>
           <tr>
-            <td><%= book_comment.user.name %><%= link_to "削除", book_book_comment_path(@book, book_comment), method: :delete, local: true %></td>
+            <td>
+              <%= link_to user_path(book_comment.user) do %>
+                <%= book_comment.user.name %>
+              <% end %>
+              <% if book_comment.user == current_user %>
+                <%= link_to "削除", book_book_comment_path(@book, book_comment), method: :delete %>
+              <% end %>
+            </td>
             <td><%= book_comment.comment %></td>
           </td>
         </tbody>
         <% end %>
-        <tr>
-          
-        </tr>
+        <% end %>
       </table>
-    </div>
-  </div>
-<br>
-
     </div>
   </div>
 </div>
