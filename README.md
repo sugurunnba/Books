@@ -1,4 +1,4 @@
-![トップページ](https://user-images.githubusercontent.com/72184121/115503273-1e86e480-a2b1-11eb-80bd-47691cd86159.jpg)
+![トップページ](https://user-images.githubusercontent.com/72184121/115503662-bedd0900-a2b1-11eb-8e91-c9dc1122d820.jpg)
 
 ## サイト概要
 読んだ本の感想を共有できるアプリです。
@@ -19,7 +19,8 @@
 
 
 ## 設計書
-ER図![ER図](https://user-images.githubusercontent.com/72184121/115503229-09aa5100-a2b1-11eb-9475-582265ae8942.jpg)
+ER図![ER図](https://user-images.githubusercontent.com/72184121/115503701-d0261580-a2b1-11eb-8ae6-71942d496a12.jpg)
 
 
-テーブル定義書[Books テーブル定義書.pdf](https://github.com/sugurunnba/Java/files/6348356/Books.pdf)
+テーブル定義書
+![Books テーブル定義書](https://user-images.githubusercontent.com/72184121/115503747-e633d600-a2b1-11eb-8724-6f090d6d2e1e.jpg)
