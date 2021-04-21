@@ -1,3 +1,113 @@
 // Place all the styles related to the user/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "https://fonts.googleapis.com/css?family=Salsa|Pacifico";
+
+:root {
+  --spread: 0.5em;
+  --shift: 0.01em;
+  --base: white;
+  --c1: white;
+  --c2: white;
+}
+@keyframes flicker1 {
+  95% {
+    text-shadow: 0 0 0.05em var(--c1), 0 0 0.1em var(--base),
+      calc(var(--shift) * 1) calc(var(--shift) * 1) calc(var(--spread) / 50)
+        var(--c1),
+      calc(var(--shift) * -1) calc(var(--shift) * -1) calc(var(--spread) / 50)
+        var(--c1),
+      calc(var(--shift) * 1) calc(var(--shift) * -1) calc(var(--spread) / 50)
+        var(--c1),
+      calc(var(--shift) * -1) calc(var(--shift) * 1) calc(var(--spread) / 50)
+        var(--c1),
+      0 0 var(--spread) var(--base), 0 0 calc(var(--spread) / 1.5) var(--base);
+  }
+  98% {
+    text-shadow: 0 0 0.05em var(--c1), 0 0 0.1em var(--c2),
+      calc(var(--shift) * 1) calc(var(--shift) * 1) calc(var(--spread) / 50)
+        var(--c1),
+      calc(var(--shift) * -1) calc(var(--shift) * -1) calc(var(--spread) / 50)
+        var(--c1),
+      calc(var(--shift) * 1) calc(var(--shift) * -1) calc(var(--spread) / 50)
+        var(--c1),
+      calc(var(--shift) * -1) calc(var(--shift) * 1) calc(var(--spread) / 50)
+        var(--c1),
+      0 0 0 var(--base), 0 0 0 var(--base);
+  }
+}
+
+@keyframes flicker2 {
+  90% {
+    opacity: 0.1;
+    text-shadow: 0 0 0.05em var(--c1), 0 0 0.1em var(--c2),
+      calc(var(--shift) * 1) calc(var(--shift) * 1) calc(var(--spread) / 50)
+        var(--c1),
+      calc(var(--shift) * -1) calc(var(--shift) * -1) calc(var(--spread) / 50)
+        var(--c1),
+      calc(var(--shift) * 1) calc(var(--shift) * -1) calc(var(--spread) / 50)
+        var(--c1),
+      calc(var(--shift) * -1) calc(var(--shift) * 1) calc(var(--spread) / 50)
+        var(--c1),
+      0 0 0 var(--base), 0 0 0 var(--base);
+  }
+}
+
+body {
+  font-family: "Salsa", sans-serif;
+}
+h3 {
+  font-family: "Pacifico", cursive;
+  font-weight: 100;
+  margin: 0 0 0.2em 0;
+  font-size: 5em;
+  letter-spacing: -0.01em;
+  color: transparent;
+  text-shadow: 0 0 0.05em var(--c1), 0 0 0.1em var(--base),
+    calc(var(--shift) * 1) calc(var(--shift) * 1) calc(var(--spread) / 50)
+      var(--c1),
+    calc(var(--shift) * -1) calc(var(--shift) * -1) calc(var(--spread) / 50)
+      var(--c1),
+    calc(var(--shift) * 1) calc(var(--shift) * -1) calc(var(--spread) / 50)
+      var(--c1),
+    calc(var(--shift) * -1) calc(var(--shift) * 1) calc(var(--spread) / 50)
+      var(--c1),
+    0 0 var(--spread) var(--base), 0 0 calc(var(--spread) / 1.5) var(--base);
+  span {
+    &:nth-child(1) {
+      animation: flicker1 1s infinite alternate ease-in-out;
+    }
+    &:nth-child(2) {
+      animation: flicker1 1.5s infinite alternate ease-in-out;
+    }
+    &:nth-child(3) {
+      animation: flicker1 0.47s infinite alternate ease-in-out;
+    }
+    &:nth-child(4) {
+      animation: flicker2 0.1s infinite alternate ease-in-out;
+    }
+  }
+}
+p {
+  margin: 0;
+  transform: translateX(10%);
+}
+main {
+  text-align: center;
+  font-size: 4vmin;
+  color: #fff;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #232325;
+  background-image: linear-gradient(-20deg, #000 30%, #9c63c7);
+  background-size: 200%;
+  background-position: center center;
+}

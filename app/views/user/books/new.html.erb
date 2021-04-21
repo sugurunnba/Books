@@ -1,1 +1,35 @@
-<h3>感想登録ページ</h3>
+<div class="container">
+  <div class="row">
+    <div class="card col-sm-6 mx-auto mt-5">
+      <div class="card-body">
+        <div>
+          <i class="fa fa-history"></i><%= link_to "戻る", 'javascript:history.back()' %>
+        </div>
+<br>
+        <%= render 'layouts/error_messages', messages: @book %>
+        <h3 class="mt-1 mb-3">感想登録</h3>
+        <%= form_with model: @book, url: books_path, local:true do |f| %>
+
+        <div class="form-group">
+          <%= f.label :book_image, "写真", :class => "form-label" %>
+          <%= f.attachment_field :book_image, :class => "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :name, "本のタイトル", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
+          <%= f.text_field :name, autocomplete: "name", :class => "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :body, "本の感想", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
+          <%= f.text_field :body, autocomplete: "introduction", :class => "form-control" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "新規登録する", :class => "btn btn-primary btn-block" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

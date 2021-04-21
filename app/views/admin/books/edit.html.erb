@@ -1,2 +1,36 @@
-<h1>Admin::Books#edit</h1>
-<p>Find me in app/views/admin/books/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="card col-sm-6 mx-auto mt-5">
+      <div class="card-body">
+        <div>
+          <i class="fa fa-history"></i><%= link_to "戻る", 'javascript:history.back()' %>
+        </div>
+<br>
+        <%= render 'layouts/error_messages', messages: @book %>
+
+        <h3 class="mt-1 mb-3">感想編集</h3>
+        <%= form_with model: @book, url: admin_book_path(@book), local:true do |f| %>
+
+        <div class="form-group">
+          <%= f.label :book_image, "写真", :class => "form-label" %>
+          <%= f.attachment_field :book_image, :class => "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :name, "店名", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
+          <%= f.text_field :name, autocomplete: "name", :class => "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :body, "お店紹介文", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
+          <%= f.text_field :body, autocomplete: "introduction", :class => "form-control" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "更新する", :class => "btn btn-primary btn-block" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

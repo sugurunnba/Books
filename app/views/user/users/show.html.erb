@@ -1,1 +1,39 @@
-<h3>マイページ</h3>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 col-md-offset-1 text-center">
+			<table border="1">
+			<br><br>
+				<thead>
+				  <tr>
+			      <h5 class="text-center" style="color: limegreen"><%= flash[:success] %></h5>
+						<% if @user == current_user %>
+						<tr>
+							<td style="background-color:white;"><%= link_to "編集する", edit_user_path(@user) %></td>
+						</tr>
+						<% end %>
+			    </tr>
+				  <h3 class="text-center"><%= @user.name %>さんのユーザー情報</h3>
+				</thead>
+				<br><br>
+				<tbody>
+					<tr>
+				    <th>ニックネーム</th>
+				    <td><%= @user.name %></td>
+				  </tr>
+				  <% if @user == current_user %>
+				  <tr>
+				    <th>メールアドレス</th>
+				    <td><%= @user.email %></td>
+				  </tr>
+				  <% end %>
+				  <tr>
+				    <th>自己紹介文</th>
+				    <td><%= @user.introduction %></td>
+				  </tr>
+				</tbody>
+			</table>
+ <br>
+		</div>
+	</div>
+</div>
+

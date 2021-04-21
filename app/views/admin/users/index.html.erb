@@ -1,2 +1,31 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-md-offset-1 text-center">
+  	  <table border="1">
+      	<thead>
+			  <br><br>
+    	    <h3 class="text-center">登録ユーザ 一覧</h3>
+      		<tr>
+      		  <td>ユーザーID</td>
+      		  <td>ユーザ名</td>
+      		</tr>
+      	</thead>
+      	<br><br>
+      	<% @users.each do |user| %>
+        	<tbody>
+        		<tr>
+        	    <th>
+        	      <%= user.id%>
+              </th>
+        	    <td>
+        	      <%= link_to admin_user_path(user) do %>
+                  <%= user.name %>
+                <% end %>
+              </td>
+        	  </tr>
+        	</tbody>
+      	<% end %>
+      </table>
+    </div>
+  </div>
+</div>
