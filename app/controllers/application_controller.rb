@@ -6,11 +6,7 @@ class ApplicationController < ActionController::Base
     when User
       user_path(current_user)
     when Admin
-<<<<<<< Updated upstream
       admin_users_path
-=======
-      admin_books_path
->>>>>>> Stashed changes
     end
   end
 
