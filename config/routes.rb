@@ -27,6 +27,16 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
   end
+  
+  # 以下adminのルートパス
+  namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update]
+  end
+  
+  namespace :admin do
+    resources :books, only: [:index, :show, :edit, :update]
+  end
+
 
   namespace :admin do
     resources :books, only: [:index, :show, :edit, :update, :destroy] do
