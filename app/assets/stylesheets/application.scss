@@ -13,14 +13,14 @@
  *= require_tree .
  *= require_self
  */
+@import https://fonts.googleapis.com/css?family=Salsa|Pacifico;
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
-@import https://fonts.googleapis.com/css?family=Salsa|Pacifico;
 
 
 * {
-  margin: 0;bundle exec rails assets:precompile RAILS_ENV=production
+  margin: 0;
   padding: 0;
 }
 
