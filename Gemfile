@@ -77,6 +77,7 @@ gem 'refile-mini_magick'
 # ブートストラップ適用
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
+gem 'font-awesome-sass', '~> 5.13'
 
 # エラーメッセージの日本語化
 gem 'rails-i18n'
