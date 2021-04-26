@@ -8,9 +8,9 @@
 ## 使用技術
 ・HTML/CSS,Javascript<br>
 ・Ruby 2.6.3, Rails 5.2.4.5<br>
-・Visual Studio Code
-・MySQL
-・nginx,puma
+・Visual Studio Code<br>
+・MySQL<br>
+・nginx,puma<br>
 ・AWS/本番環境（EC2, RDS)
 
 
