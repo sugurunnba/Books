@@ -9,6 +9,9 @@
 ・HTML/CSS,Javascript<br>
 ・Ruby 2.6.3, Rails 5.2.4.5<br>
 ・Visual Studio Code
+・MySQL
+・nginx,puma
+・AWS/本番環境（EC2, RDS)
 
 
 ## 機能一覧
